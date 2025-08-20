@@ -9,7 +9,7 @@ const ProtectedRoute = ({ Component }) => {
         if (!loginStatus) {
             navigate("/login")
         } else {
-            navigate("/trips")
+            navigate("/hotels")
         }
     }, [])
 

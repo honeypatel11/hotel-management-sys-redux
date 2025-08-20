@@ -1,77 +1,87 @@
-import { IoIosArrowDown } from "react-icons/io";
-
 const Home = () => {
-  return (
-    <section className="bg-hero bg-cover bg-center h-screen flex items-center relative">
+    return (
+        <div className="md:p-[25px] overflow-hidden">
+            <section className="back-color-image md:h-[90vh] sm:h-screen md:rounded-2xl overflow-hidden home-section h-screen pt-32">
+                <div className="bg-img">
+                    <div className="container mx-auto">
+                        <div className="flex flex-col justify-center h-[50vh]">
+                            <h1 className="text-center text-white text-7xl capitalize">
+                                <span className="capitalize text-8xl">Find the</span> <br />
+                                perfect hotel stay
+                            </h1>
+                            <p className="text-center mt-20 text-white text-2xl">
+                                Over <span>5,000+</span> luxury and budget hotels worldwide
+                            </p>
+                        </div>
 
-      <div className="absolute inset-0 bg-teal-900  z-0">
-        <img src="img/newslide-01.jpeg" alt="" />
-      </div>
+                        <div className="flex justify-center flex-wrap">
+                            <form className="mt-12 w-10/12 xl:flex hidden bg-white gap-4 rounded-xl p-4 justify-between flex-wrap items-center">
+                                {/* Location */}
+                                <div className="flex items-center gap-3 border-r xl:p-0 p-4 xl:w-3/12 md:w-6/12 w-full">
+                                    <i className="bi bi-geo-alt text-lg text-gray-500"></i>
+                                    <div className="flex flex-col">
+                                        <label className="text-[14px] text-gray-400">Location</label>
+                                        <select className="text-sm font-semibold focus:outline-none bg-transparent">
+                                            <option value="">Choose city</option>
+                                            <option value="newyork">New York</option>
+                                            <option value="paris">Paris</option>
+                                            <option value="tokyo">Tokyo</option>
+                                        </select>
+                                    </div>
+                                </div>
 
-      <div className="container mx-auto px-8 relative z-10">
+                                {/* Room Type */}
+                                <div className="flex items-center gap-3 border-r xl:p-0 p-4 xl:w-2/12 md:w-6/12 w-full">
+                                    <i className="bi bi-building text-lg text-gray-500"></i>
+                                    <div className="flex flex-col">
+                                        <label className="text-[14px] text-gray-400">Room Type</label>
+                                        <select className="text-sm font-semibold focus:outline-none bg-transparent">
+                                            <option>Standard</option>
+                                            <option>Deluxe</option>
+                                            <option>Suite</option>
+                                        </select>
+                                    </div>
+                                </div>
 
-        <h1 className="text-9xl md:text-7xl fw-bold text-white mb-6">
-          Explore the <br /> World Now!
-        </h1>
+                                {/* Check-in / Check-out */}
+                                <div className="flex items-center gap-3 border-r xl:p-0 p-4 xl:w-3/12 md:w-6/12 w-full">
+                                    <i className="bi bi-calendar-event text-lg text-gray-500"></i>
+                                    <div className="flex flex-col">
+                                        <label className="text-[14px] text-gray-400">Dates</label>
+                                        <input type="date" className="text-sm font-semibold focus:outline-none bg-transparent" />
+                                    </div>
+                                    <div className="flex flex-col">
+                                        <label className="text-[14px] text-gray-400">to</label>
+                                        <input type="date" className="text-sm font-semibold focus:outline-none bg-transparent" />
+                                    </div>
+                                </div>
 
+                                {/* Guests */}
+                                <div className="flex items-center gap-3 border-r xl:p-0 p-4 xl:w-2/12 md:w-6/12 w-full">
+                                    <i className="bi bi-person text-lg text-gray-500"></i>
+                                    <div className="flex flex-col">
+                                        <label className="text-[14px] text-gray-400">Guests</label>
+                                        <select className="text-base font-medium focus:outline-none">
+                                            <option>1 Guest</option>
+                                            <option>2 Guests</option>
+                                            <option>3+ Guests</option>
+                                        </select>
+                                    </div>
+                                </div>
 
-        <p className="text-lg md:text-xl text-white max-w-xl mb-10">
-          Looking for your dream vacation destination but don't know where to start? With the help of our hotel agents, you can plan the trip of a lifetime with ease.
-        </p>
-
-
-        <form className="bg-white/90 backdrop-blur-md p-6 rounded-lg w-full max-w-4xl space-y-4">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 items-end">
-
-            <div>
-              <label className="block text-sm text-gray-700 mb-1">Check-In</label>
-              <div className="relative">
-                <input
-                  type="date"
-                  defaultValue="2025-08-07"
-                  className="w-full px-4 py-2 rounded border border-gray-300"
-                />
-                <IoIosArrowDown className="absolute right-3 top-3 text-gray-500 pointer-events-none" />
-              </div>
-            </div>
-
-            <div>
-              <label className="block text-sm text-gray-700 mb-1">Check-Out</label>
-              <div className="relative">
-                <input
-                  type="date"
-                  defaultValue="2025-08-08"
-                  className="w-full px-4 py-2 rounded border border-gray-300"
-                />
-                <IoIosArrowDown className="absolute right-3 top-3 text-gray-500 pointer-events-none" />
-              </div>
-            </div>
-
-            <div>
-              <label className="block text-sm text-gray-700 mb-1">Guests</label>
-               <input
-                  type="number"
-                 
-                  className="w-full px-4 py-2 rounded border border-gray-300"
-                />
-                <IoIosArrowDown className="absolute right-3 top-3 text-gray-500 pointer-events-none" />
-  
-             
-            </div>
-
-            <div>
-              <button
-                type="submit"
-                className="w-full bg-black text-white py-2 px-4 rounded hover:bg-gray-800 transition"
-              >
-                Check Availability
-              </button>
-            </div>
-          </div>
-        </form>
-      </div>
-    </section>
-  );
+                                {/* Search Button */}
+                                <div className="flex justify-center w-2/12">
+                                    <button type="submit" className="bg-[#73B458] hover:bg-[#5c9c3f] text-white flex items-center gap-2 px-6 py-2 rounded-full transition-all duration-300">
+                                        Search <i className="bi bi-search"></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    );
 };
 
 export default Home;
