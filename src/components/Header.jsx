@@ -1,181 +1,182 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { logoutAdmin } from "../features/students/hotelSlice";
 import { toast } from "react-toastify";
 import { useState } from "react";
-import { logoutAdmin } from "../features/students/hotelSlice"; 
 
 const Header = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const { pathname } = useLocation();
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
+    const { pathname } = useLocation();
+    const [menu, setMenu] = useState(false);
+    const isLoggedIn = useSelector((state) => state.hotels.isLoggedIn);
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
 
-  const isLoggedIn = useSelector((state) => state.hotels.isLoggedIn);
+    const handleLogout = () => {
+        dispatch(logoutAdmin());
+        navigate("/login");
+        toast.success("Admin Logged Out Successfully!");
+    };
 
-  const handleLogout = () => {
-    dispatch(logoutAdmin());
-    navigate("/login");
-    toast.success("Admin Logged Out Successfully!");
-  };
+    return (
+        <>
+            <header>
+                <nav className="bg-white w-full z-20 top-0 start-0 fixed">
+                    <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+                        <Link to="/" className="flex items-center space-x-3">
+                          <img src="/img/hotel-logocolor.png" alt="" className="w-56" />
+                        </Link>
 
+                        <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1">
+                            <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium md:space-x-8 md:flex-row md:mt-0 text-white items-center">
+                                <li>
+                                    <Link
+                                        to="/"
+                                        className={`${pathname === "/" ? "text-[#558870] px-2 font-bold text-md" : "text-black px-2 text-md"}`}
+                                    >
+                                        Home
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        to="/hotels"
+                                        className={`${pathname === "/hotels" ? "text-[#558870] px-2 font-bold text-md" : "text-black px-2 text-md"}`}
+                                    >
+                                        Hotels
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        to="/add-hotel"
+                                        className={`${pathname === "/add-hotel" ? "text-[#558870] px-2 font-bold text-md" : "text-black px-2 text-md"}`}
+                                    >
+                                        Add Hotel
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        to="/contact"
+                                        className={`${pathname === "/contact" ? "text-[#558870] px-2 font-bold text-md" : "text-black px-2 text-md"}`}
+                                    >
+                                        Contact
+                                    </Link>
+                                </li>
+                            </ul>
+                        </div>
 
-  const navLinks = [
-    { name: "Home", path: "/" },
-    { name: "Contact", path: "/contact" },
-  ];
+                        <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse align-items-center justify-content-center">
+                            {isLoggedIn ? (
+                                <button onClick={handleLogout} type="button" className="btn-custom">
+                                    Logout
+                                </button>
+                            ) : (
+                                <button
+                                    onClick={() => {
+                                        navigate("/login");
+                                    }}
+                                    type="button"
+                                    className="btn-custom"
+                                >
+                                    Login
+                                </button>
+                            )}
+                            <div className="md:hidden">
+                                <button onClick={() => setMenu(!menu)} className="text-black text-2xl mt-2">
+                                    {menu ? "✕" : "☰"}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
 
-  if (isLoggedIn) {
-    navLinks.splice(1, 0, 
-      { name: "Hotels", path: "/hotels" },
-      { name: "Add Hotel", path: "/add-hotel" }
+                {menu && (
+                    <div
+                        className={`md:hidden fixed inset-0text-[#558870] z-50 p-6 overflow-y-auto transform transition-transform duration-300 ease-in-out ${
+                            menu ? "translate-x-0" : "translate-x-full"
+                        }`}
+                    >
+                        <div className="flex items-center justify-between">
+                            <Link
+                                to="/"
+                                onClick={() => setMenu(false)}
+                                className="flex items-center space-x-3"
+                            >
+                                
+                            </Link>
+                            {/* <button
+                                onClick={() => setMenu(false)}
+                                className="text-black text-2xl w-8 h-8 flex items-center justify-center"
+                            >
+                                ✕
+                            </button> */}
+                        </div>
+
+                        <ul className="flex flex-col mt-12 space-y-6 font-medium text-black text-lg">
+                            <li>
+                                <Link
+                                    to="/"
+                                    onClick={() => setMenu(false)}
+                                    className={`${pathname === "/" ? "text-[#558870] font-bold" : "text-black"} transition`}
+                                >
+                                    Home
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    to="/hotels"
+                                    onClick={() => setMenu(false)}
+                                    className={`${pathname === "/hotels" ? "text-[#558870] font-bold" : "text-black"} transition`}
+                                >
+                                    Hotels
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    to="/add-hotel"
+                                    onClick={() => setMenu(false)}
+                                    className={`${pathname === "/add-hotel" ? "text-[#558870] font-bold" : "text-black"} transition`}
+                                >
+                                    Add Hotel
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    to="/contact"
+                                    onClick={() => setMenu(false)}
+                                    className={`${pathname === "/contact" ? "text-[#558870] font-bold" : "text-black"} transition`}
+                                >
+                                    Contact
+                                </Link>
+                            </li>
+                        </ul>
+
+                        <div className="mt-10">
+                            {isLoggedIn ? (
+                                <button
+                                    onClick={() => {
+                                        handleLogout();
+                                        setMenu(false);
+                                    }}
+                                    className="btn-custom w-full"
+                                >
+                                    Logout
+                                </button>
+                            ) : (
+                                <button
+                                    onClick={() => {
+                                        setMenu(false);
+                                        navigate("/login");
+                                    }}
+                                    className="btn-custom w-full bg-gradient"
+                                >
+                                    Login
+                                </button>
+                            )}
+                        </div>
+                    </div>
+                )}
+            </header>
+        </>
     );
-  }
-
-
-  const isActive = (path) =>
-    pathname === path || (pathname.includes(path) && path !== "/");
-
-  return (
-    <header
-      className={`fixed top-0 left-0 w-full z-50 transition-colors duration-500 ${
-        pathname !== "/" ? "bg-[#2f473e] shadow-lg" : "bg-transparent md:mt-[40px]"
-      }`}
-    >
-      <nav className="container mx-auto">
-        <div className="max-w-screen-xl flex items-center justify-between mx-auto p-4">
-
-          <Link to="/" className="flex items-center space-x-3">
-       
-            <img
-              src="/img/hotel-logocolor.png"
-              alt="Hotel Logo"
-              className="max-w-[120px] max-[354px]:w-24 h-auto"
-              loading="lazy"
-            />
-          </Link>
-
-   
-          <div className="hidden md:flex flex-1 justify-center">
-            <ul className="font-semibold flex space-x-8">
-              {navLinks.map((link) => (
-                <li key={link.name}>
-                  <Link
-                    to={link.path}
-                    className={`relative px-1 py-1 transition-colors duration-300 ${
-                      isActive(link.path)
-                        ? "text-[#73B458]"
-                        : "text-white hover:text-[#F29727]"
-                    }`}
-                  >
-                    {link.name}
-               
-                    {isActive(link.path) && (
-                      <span className="absolute left-0 -bottom-1 w-full h-0.5 bg-[#73B458] rounded" />
-                    )}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="flex items-center gap-3">
-            {isLoggedIn ? (
-              <button
-                onClick={handleLogout}
-                className="hidden md:flex items-center gap-2 bg-[#73B458] hover:bg-[#F29727] text-white font-medium rounded-full text-sm px-6 py-2 transition-colors duration-300"
-                aria-label="Logout"
-              >
-                Logout <i className="bi bi-arrow-right-circle-fill text-xl" />
-              </button>
-            ) : (
-              <button
-                onClick={() => navigate("/login")}
-                className="flex items-center gap-2 bg-[#73B458] hover:bg-[#F29727] text-white font-medium rounded-full text-sm px-6 py-2 transition-colors duration-300"
-                aria-label="Login"
-              >
-                Login <i className="bi bi-arrow-right-circle-fill text-xl" />
-              </button>
-            )}
-
-            <button
-              onClick={() => setMenuOpen(!menuOpen)}
-              className="md:hidden text-white text-3xl p-1 focus:outline-none focus:ring-2 focus:ring-[#73B458] rounded"
-              aria-label={menuOpen ? "Close menu" : "Open menu"}
-            >
-              {menuOpen ? "✕" : "☰"}
-            </button>
-          </div>
-        </div>
-      </nav>
-
-     
-      {menuOpen && (
-        <div className="md:hidden fixed inset-0 bg-[#11221c] z-50 p-6 overflow-y-auto">
-          <div className="flex items-center justify-between mb-6">
-            <Link to="/" onClick={() => setMenuOpen(false)}>
-              <img
-                src="/img/hotel-logocolor.png"
-                alt="Hotel Logo"
-                className="max-w-[0px]"
-                loading="lazy"
-              />
-            </Link>
-            <button
-              onClick={() => setMenuOpen(false)}
-              className="text-white text-3xl p-1 focus:outline-none focus:ring-2 focus:ring-[#73B458] rounded"
-              aria-label="Close menu"
-            >
-              ✕
-            </button>
-          </div>
-
-          <ul className="flex flex-col space-y-6 font-semibold text-white">
-            {navLinks.map((link) => (
-              <li key={link.name}>
-                <Link
-                  to={link.path}
-                  onClick={() => setMenuOpen(false)}
-                  className={`block transition-colors duration-300 ${
-                    isActive(link.path)
-                      ? "text-[#73B458]"
-                      : "hover:text-[#F29727]"
-                  }`}
-                >
-                  {link.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
-
-          <div className="mt-8">
-            {isLoggedIn ? (
-              <button
-                onClick={() => {
-                  setMenuOpen(false);
-                  handleLogout();
-                }}
-                className="w-full flex justify-center items-center gap-2 bg-[#73B458] hover:bg-[#F29727] text-white font-medium rounded-full text-sm px-6 py-2 transition-colors duration-300"
-                aria-label="Logout"
-              >
-                Logout <i className="bi bi-arrow-right-circle-fill text-xl" />
-              </button>
-            ) : (
-              <button
-                onClick={() => {
-                  setMenuOpen(false);
-                  navigate("/login");
-                }}
-                className="w-full flex justify-center items-center gap-2 bg-[#73B458] hover:bg-[#F29727] text-white font-medium rounded-full text-sm px-6 py-2 transition-colors duration-300"
-                aria-label="Login"
-              >
-                Login <i className="bi bi-arrow-right-circle-fill text-xl" />
-              </button>
-            )}
-          </div>
-        </div>
-      )}
-    </header>
-  );
 };
 
 export default Header;

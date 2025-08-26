@@ -1,7 +1,7 @@
 export const hotelCard = [
     {
-        img: "/images/hotel1.jpg",
-        name: "Sunset View Hotel",
+        img: "https://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/asian/wp-content/uploads/sites/9/2023/07/room-06-1024x683.jpg",
+        name: "Double Room",
         location: "Goa, India",
         description: "Beachside hotel with luxurious amenities and sea view rooms.",
         price: "2500",
@@ -9,13 +9,50 @@ export const hotelCard = [
         rooms: 10,
     },
     {
-        img: "/images/hotel2.jpg",
-        name: "Mountain Retreat",
+        img: "https://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/asian/wp-content/uploads/sites/9/2023/07/room-05-1024x683.jpg",
+        name: "Family Room",
         location: "Manali, India",
         description: "Perfect escape for nature lovers. Scenic views and cozy rooms.",
         price: "1800",
         rating: 4.2,
         rooms: 8,
     },
+    {
+        img: "https://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/asian/wp-content/uploads/sites/9/2023/07/room-04-1024x683.jpg",
+        name: "Luxury Room",
+        location: "Manali, India",
+        description: "Perfect escape for nature lovers. Scenic views and cozy rooms.",
+        price: "1800",
+        rating: 4.2,
+        rooms: 8,
+    },
+    {
+        img: "https://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/asian/wp-content/uploads/sites/9/2023/07/room-03-1024x683.jpg",
+        name: "Apartment",
+        location: "Manali, India",
+        description: "Perfect escape for nature lovers. Scenic views and cozy rooms.",
+        price: "1800",
+        rating: 4.2,
+        rooms: 8,
+    },
+    {
+        img: "https://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/asian/wp-content/uploads/sites/9/2023/07/room-02-1024x683.jpg",
+        name: "Room With View",
+        location: "Manali, India",
+        description: "Perfect escape for nature lovers. Scenic views and cozy rooms.",
+        price: "1800",
+        rating: 4.2,
+        rooms: 8,
+    },
+    {
+        img: "https://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/asian/wp-content/uploads/sites/9/2023/07/room-01-1024x683.jpg",
+        name: "Small Room",
+        location: "Manali, India",
+        description: "Perfect escape for nature lovers. Scenic views and cozy rooms.",
+        price: "1800",
+        rating: 4.2,
+        rooms: 8,
+    },
+ 
    
 ]

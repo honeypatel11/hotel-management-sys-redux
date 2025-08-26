@@ -1,10 +1,10 @@
 const Home = () => {
     return (
-        <div className="md:p-[25px] overflow-hidden">
-            <section className="back-color-image md:h-[90vh] sm:h-screen md:rounded-2xl overflow-hidden home-section h-screen pt-32">
+        
+            <section className=" ">
                 <div className="bg-img">
                     <div className="container mx-auto">
-                        <div className="flex flex-col justify-center h-[50vh]">
+                        <div className="flex flex-col justify-center h-screen ">
                             <h1 className="text-center text-white text-7xl capitalize">
                                 <span className="capitalize text-8xl">Find the</span> <br />
                                 perfect hotel stay
@@ -77,7 +77,7 @@ const Home = () => {
                     </div>
                 </div>
             </section>
-        </div>
+       
     );
 };
 

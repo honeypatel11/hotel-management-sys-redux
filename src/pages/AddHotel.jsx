@@ -13,12 +13,16 @@ const AddHotel = () => {
     });
 
     const [errors, setErrors] = useState({});
-
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
     const handleChange = (e) => {
-        setInput({ ...input, [e.target.id]: e.target.value });
+        const { id, value, name, type } = e.target;
+        if (type === "radio") {
+            setInput({ ...input, [name]: value });
+        } else {
+            setInput({ ...input, [id]: value });
+        }
     };
 
     const handleSubmit = (e) => {
@@ -55,72 +59,104 @@ const AddHotel = () => {
     };
 
     return (
-        <div className="add-hotel min-h-screen flex items-center justify-center bg-[#11221C] pt-[100px]">
-           
-            <div className="w-full lg:w-1/2 flex item-center justify-center md:p-5">
-                <div className="w-full bg-white md:rounded-md max-w-md p-8">
-                    <div className="container mx-auto">
-                        <h2 className="mb-5 text-3xl text-[#F29727]">Add A Hotel</h2>
-                        <form onSubmit={handleSubmit} className="max-w-sm mx-auto">
-                            <div className="mb-5">
-                                <label htmlFor="hotelName" className="block mb-2 text-sm font-medium text-gray-900">Hotel Name:</label>
-                                <input type="text" onChange={handleChange} value={input.hotelName} id="hotelName" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full p-2.5" />
-                                {errors.hotelName && <p className="text-red-500 text-sm mt-1">{errors.hotelName}</p>}
-                            </div>
+        <div className="min-h-screen bg-[#11221C] pt-[80px] px-4 flex items-center justify-center">
+            <div className="max-w-6xl w-full flex flex-col lg:flex-row bg-white rounded-lg shadow-xl overflow-hidden">
+               
+                <div className="w-full lg:w-1/2 h-[500px] lg:h-auto">
+                    <img
+                        src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/230241575.jpg?k=a075b64e42b369450c7914ee98a24deaacead983d5e9497fc6fea553b23e5ca7&o="
+                        alt="Hotel"
+                        className="w-full h-full object-cover"
+                    />
+                </div>
 
-                            <div className="mb-5">
-                                <label htmlFor="location" className="block mb-2 text-sm font-medium text-gray-900">Location:</label>
-                                <input type="text" onChange={handleChange} value={input.location} id="location" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full p-2.5" />
-                                {errors.location && <p className="text-red-500 text-sm mt-1">{errors.location}</p>}
-                            </div>
+          
+                <div className="w-full lg:w-1/2 p-8 flex flex-col justify-center">
+                    <h2 className="mb-6 text-3xl text-center font-bold text-[#357c73]">Add a Hotel</h2>
+                    <form onSubmit={handleSubmit} className="space-y-5">
+                     
+                        <div>
+                            <label htmlFor="hotelName" className="block mb-1 text-sm font-medium text-gray-700">Hotel Name:</label>
+                            <input
+                                type="text"
+                                id="hotelName"
+                                value={input.hotelName}
+                                onChange={handleChange}
+                                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3a9c73] transition"
+                            />
+                            {errors.hotelName && <p className="text-red-500 text-sm mt-1">{errors.hotelName}</p>}
+                        </div>
 
-                            <div className="mb-5">
-                                <label htmlFor="rooms" className="block mb-2 text-sm font-medium text-gray-900">Rooms:</label>
-                                <input type="number" onChange={handleChange} value={input.rooms} id="rooms" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full p-2.5" />
-                                {errors.rooms && <p className="text-red-500 text-sm mt-1">{errors.rooms}</p>}
-                            </div>
+                        {/* Location */}
+                        <div>
+                            <label htmlFor="location" className="block mb-1 text-sm font-medium text-gray-700">Location:</label>
+                            <input
+                                type="text"
+                                id="location"
+                                value={input.location}
+                                onChange={handleChange}
+                                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3a9c73] transition"
+                            />
+                            {errors.location && <p className="text-red-500 text-sm mt-1">{errors.location}</p>}
+                        </div>
 
-                            <div className="mb-5">
-                                <div className="flex flex-wrap sm:flex-nowrap gap-4">
-                                    <label className="flex items-center gap-1">
-                                        <input id="category" type="radio" name="category" value="3-star"
-                                            onChange={handleChange} checked={input.category === "3-star"}
-                                            className="w-4 h-4 text-orange-500 focus:ring-orange-400"
+                        {/* Rooms */}
+                        <div>
+                            <label htmlFor="rooms" className="block mb-1 text-sm font-medium text-gray-700">Rooms:</label>
+                            <input
+                                type="number"
+                                id="rooms"
+                                value={input.rooms}
+                                onChange={handleChange}
+                                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3a9c73] transition"
+                            />
+                            {errors.rooms && <p className="text-red-500 text-sm mt-1">{errors.rooms}</p>}
+                        </div>
+
+                        {/* Category */}
+                        <div>
+                            <span className="block mb-1 text-sm font-medium text-gray-700">Category:</span>
+                            <div className="flex flex-wrap gap-5">
+                                {["3-star", "4-star", "5-star"].map((value) => (
+                                    <label key={value} className="flex items-center gap-2 cursor-pointer">
+                                        <input
+                                            type="radio"
+                                            name="category"
+                                            value={value}
+                                            checked={input.category === value}
+                                            onChange={handleChange}
+                                            className="accent-[#28704a] w-4 h-4"
                                         />
-                                        3-Star
+                                        <span className="text-gray-700">{value}</span>
                                     </label>
-                                    <label className="flex items-center gap-1">
-                                        <input id="category" type="radio" name="category" value="4-star"
-                                            onChange={handleChange} checked={input.category === "4-star"}
-                                            className="w-4 h-4 text-orange-500 focus:ring-orange-400"
-                                        />
-                                        4-Star
-                                    </label>
-                                    <label className="flex items-center gap-1">
-                                        <input id="category" type="radio" name="category" value="5-star"
-                                            onChange={handleChange} checked={input.category === "5-star"}
-                                            className="w-4 h-4 text-orange-500 focus:ring-orange-400"
-                                        />
-                                        5-Star
-                                    </label>
-                                </div>
-                                {errors.category && <p className="text-red-500 text-sm mt-1">{errors.category}</p>}
+                                ))}
                             </div>
+                            {errors.category && <p className="text-red-500 text-sm mt-1">{errors.category}</p>}
+                        </div>
 
-                            <div className="mb-5">
-                                <label htmlFor="price" className="block mb-2 text-sm font-medium text-gray-900">Price per Night:</label>
-                                <input type="number" onChange={handleChange} value={input.price} id="price" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full p-2.5" />
-                                {errors.price && <p className="text-red-500 text-sm mt-1">{errors.price}</p>}
-                            </div>
+                        {/* Price */}
+                        <div>
+                            <label htmlFor="price" className="block mb-1 text-sm font-medium text-gray-700">Price per Night:</label>
+                            <input
+                                type="number"
+                                id="price"
+                                value={input.price}
+                                onChange={handleChange}
+                                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3a9c73] transition"
+                            />
+                            {errors.price && <p className="text-red-500 text-sm mt-1">{errors.price}</p>}
+                        </div>
 
-                            <button type="submit" className="text-white bg-[#F29727] hover:bg-[#e47e02] focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center">
-                                Add Hotel
-                            </button>
-                        </form>
-                    </div>
+                        {/* Submit Button */}
+                        <button
+                            type="submit"
+                            className="w-full bg-[#2e7460] hover:bg-[#388353] text-white py-3 rounded-lg font-semibold text-sm transition duration-300"
+                        >
+                            Add Hotel
+                        </button>
+                    </form>
                 </div>
             </div>
-           
         </div>
     );
 };
