@@ -16,7 +16,7 @@ const Home = () => {
 
                         <div className="flex justify-center flex-wrap">
                             <form className="mt-12 w-10/12 xl:flex hidden bg-white gap-4 rounded-xl p-4 justify-between flex-wrap items-center">
-                                {/* Location */}
+                        
                                 <div className="flex items-center gap-3 border-r xl:p-0 p-4 xl:w-3/12 md:w-6/12 w-full">
                                     <i className="bi bi-geo-alt text-lg text-gray-500"></i>
                                     <div className="flex flex-col">
@@ -29,8 +29,6 @@ const Home = () => {
                                         </select>
                                     </div>
                                 </div>
-
-                                {/* Room Type */}
                                 <div className="flex items-center gap-3 border-r xl:p-0 p-4 xl:w-2/12 md:w-6/12 w-full">
                                     <i className="bi bi-building text-lg text-gray-500"></i>
                                     <div className="flex flex-col">
@@ -43,7 +41,7 @@ const Home = () => {
                                     </div>
                                 </div>
 
-                                {/* Check-in / Check-out */}
+                              
                                 <div className="flex items-center gap-3 border-r xl:p-0 p-4 xl:w-3/12 md:w-6/12 w-full">
                                     <i className="bi bi-calendar-event text-lg text-gray-500"></i>
                                     <div className="flex flex-col">
@@ -56,7 +54,7 @@ const Home = () => {
                                     </div>
                                 </div>
 
-                                {/* Guests */}
+                         
                                 <div className="flex items-center gap-3 border-r xl:p-0 p-4 xl:w-2/12 md:w-6/12 w-full">
                                     <i className="bi bi-person text-lg text-gray-500"></i>
                                     <div className="flex flex-col">
@@ -69,7 +67,6 @@ const Home = () => {
                                     </div>
                                 </div>
 
-                                {/* Search Button */}
                                 <div className="flex justify-center w-2/12">
                                     <button type="submit" className="bg-[#73B458] hover:bg-[#5c9c3f] text-white flex items-center gap-2 px-6 py-2 rounded-full transition-all duration-300">
                                         Search <i className="bi bi-search"></i>

@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-// import { loginDetails } from "../features/bookings/bookingSlice"
 import { useNavigate } from "react-router-dom"
 import { loginAdmin } from "../features/students/hotelSlice"
 
@@ -21,10 +20,9 @@ const Login = () => {
 
     useEffect(() => {
         if (isLoggedIn) {
-            navigate("/hotels") // Navigate to hotel list after login
+            navigate("/hotels") 
         }
     }, [isLoggedIn, navigate])
-
 
     return (
         <section className="home-section login-section">

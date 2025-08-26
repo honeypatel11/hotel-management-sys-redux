@@ -137,9 +137,7 @@ const EditHotel = () => {
                     </div>
                 </div>
             </div>
-            <div className="hidden lg:block">
-                <img src="/images/shape3.png" alt="shape" />
-            </div>
+           
         </div>
     );
 };

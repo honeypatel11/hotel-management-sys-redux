@@ -1,75 +1,51 @@
-// import ContactCard from "../components/ContactCard";
-
 const Contact = () => {
-    let cardContent = [
+    const cardContent = [
         {
-            icon: "bi bi-envelope",
-            title: "Email Us 24/7",
-            desc: "Have any questions about your hotel stay?",
-            desc2: "hotelsupport@gmail.com",
+            image: "https://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/asian/wp-content/uploads/sites/9/2023/07/square-02.jpg",
+            title: "Reception Always Open",
+            desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.",
         },
         {
-            icon: "bi bi-telephone",
-            title: "Customer Support",
-            desc: "Need help with a hotel booking?",
-            desc2: "+1 (234) 456 8888",
-        }
+            image: "https://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/asian/wp-content/uploads/sites/9/2023/07/square-01.jpg",
+            title: "Online Reservations",
+            desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.",
+        },
     ];
 
     return (
-        <section className="pt-[100px] flex items-center flex-col h-screen">
-            <div className="mb-5 sm:hidden relative contact-bg">
-                <img src="/images/text-bg.png" width={'40%'} alt="" />
-                <span className="font-semibold text-white absolute text-6xl contact-text top-[52%] tracking-wider left-[15%]">
-                    CONTACT
-                </span>
+        <section className="pt-[100px] flex flex-col items-center w-full">
+
+            <div
+                className="mb-5 w-full h-[300px] bg-cover bg-center bg-no-repeat relative"
+                style={{ backgroundImage: "url('https://www.nicdarkthemes.com/themes/hotel-booking/wp/demo/hostel/wp-content/uploads/sites/9/2023/07/parallax-05.jpg')" }} >
+                <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
+                    <h1 className="text-white text-5xl font-semibold">Contact</h1>
+                </div>
             </div>
-            <div className="container mx-auto pt-10">
-                <div className="flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-5">
-                    <div className="md:w-4/12 w-full">
-                        <div className="flex flex-col ">
-                            <div className="contact-title">
-                                <span className="text-3xl">Contact Us</span>
-                                <h2 className="text-5xl my-4 font-semibold">
-                                    Hotel Comfort Starts Here – Contact Us
-                                </h2>
+
+
+            <div className="w-full max-w-7xl px-4 md:px-8 py-16">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {cardContent.map((item, index) => (
+                        <div
+                            key={index}
+                            className="flex items-center bg-white shadow-md rounded-lg p-6 border hover:shadow-lg transition"
+                        >
+                            <div className="w-[70px] h-[70px] min-w-[70px] rounded-full overflow-hidden mr-6">
+                                <img
+                                    src={item.image}
+                                    alt={item.title}
+                                    className="w-full h-full object-cover"
+                                />
                             </div>
-                            <div className="contact-card mt-16">
-                                <div className="py-[40px] px-[30px] bg-[#EAF4E6] rounded-2xl">
-                                    <div className="icon text-5xl mb-4 text-[#73B458]">
-                                        <i className="bi bi-geo-fill"></i>
-                                    </div>
-                                    <div className="content">
-                                        <span className="text-xl font-semibold text-[#11221C]">Location</span>
-                                        <p className="text-[#737373] my-3">Want to visit our head office?</p>
-                                        <h4 className="font-semibold text-[#11221C] text-[22px]">
-                                            55 Clark St, Brooklyn, USA
-                                        </h4>
-                                    </div>
-                                </div>
+                            <div>
+                                <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+                                <p className="text-gray-600 text-sm leading-relaxed">
+                                    {item.desc}
+                                </p>
                             </div>
                         </div>
-                    </div>
-                    <div className="md:w-4/12 w-full hidden md:flex justify-center">
-                        <div className="flex justify-center">
-                            <img src="/images/contact-img.jpg" className="rounded-full" alt="hotel contact" />
-                        </div>
-                    </div>
-                    <div className="md:w-4/12 w-full">
-                        <div className="contact-card flex flex-col gap-5">
-                            {/* {
-                                cardContent.map((card, idx) => (
-                                    <ContactCard
-                                        key={idx}
-                                        icon={card.icon}
-                                        title={card.title}
-                                        desc={card.desc}
-                                        desc2={card.desc2}
-                                    />
-                                ))
-                            } */}
-                        </div>
-                    </div>
+                    ))}
                 </div>
             </div>
         </section>

@@ -56,9 +56,7 @@ const AddHotel = () => {
 
     return (
         <div className="add-hotel min-h-screen flex items-center justify-center bg-[#11221C] pt-[100px]">
-            <div className="hidden lg:block">
-                <img src="/images/shape3.png" className="scale-x-[-1]" alt="shape" />
-            </div>
+           
             <div className="w-full lg:w-1/2 flex item-center justify-center md:p-5">
                 <div className="w-full bg-white md:rounded-md max-w-md p-8">
                     <div className="container mx-auto">
@@ -122,9 +120,7 @@ const AddHotel = () => {
                     </div>
                 </div>
             </div>
-            <div className="hidden lg:block">
-                <img src="/images/shape3.png" alt="shape" />
-            </div>
+           
         </div>
     );
 };
