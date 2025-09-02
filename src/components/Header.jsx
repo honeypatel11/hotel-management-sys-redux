@@ -23,7 +23,7 @@ const Header = () => {
                 <nav className="bg-white w-full z-20 top-0 start-0 fixed">
                     <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                         <Link to="/" className="flex items-center space-x-3">
-                          <img src="/img/hotel-logocolor.png" alt="" className="w-56" />
+                            <img src="/img/hotel-logocolor.png" alt="" className="w-56" />
                         </Link>
 
                         <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1">
@@ -90,9 +90,8 @@ const Header = () => {
 
                 {menu && (
                     <div
-                        className={`md:hidden fixed inset-0text-[#558870] z-50 p-6 overflow-y-auto transform transition-transform duration-300 ease-in-out ${
-                            menu ? "translate-x-0" : "translate-x-full"
-                        }`}
+                        className={`md:hidden fixed inset-0 text-[#558870] bg-white z-50 p-6 overflow-y-auto transform transition-transform duration-300 ease-in-out ${menu ? "translate-x-0" : "translate-x-full"
+                            }`}
                     >
                         <div className="flex items-center justify-between">
                             <Link
@@ -100,22 +99,49 @@ const Header = () => {
                                 onClick={() => setMenu(false)}
                                 className="flex items-center space-x-3"
                             >
-                                
+                                <img src="/img/hotel-logocolor.png" alt="Logo" className="w-40" />
                             </Link>
-                            {/* <button
-                                onClick={() => setMenu(false)}
-                                className="text-black text-2xl w-8 h-8 flex items-center justify-center"
-                            >
-                                ✕
-                            </button> */}
+
+                            <div className="flex items-center space-x-4">
+                                {isLoggedIn ? (
+                                    <button
+                                        onClick={() => {
+                                            handleLogout();
+                                            setMenu(false);
+                                        }}
+                                        className="text-[white] bg-teal-500 font-medium"
+                                    >
+                                        Logout
+                                    </button>
+                                ) : (
+                                    <button
+                                        onClick={() => {
+                                            setMenu(false);
+                                            navigate("/login");
+                                        }}
+                                        className="text-[#558870] font-medium"
+                                    >
+                                        Login
+                                    </button>
+                                )}
+
+                                <button
+                                    onClick={() => setMenu(false)}
+                                    className="text-3xl text-black focus:outline-none"
+                                >
+                                    ✕
+                                </button>
+                            </div>
                         </div>
+
 
                         <ul className="flex flex-col mt-12 space-y-6 font-medium text-black text-lg">
                             <li>
                                 <Link
                                     to="/"
                                     onClick={() => setMenu(false)}
-                                    className={`${pathname === "/" ? "text-[#558870] font-bold" : "text-black"} transition`}
+                                    className={`${pathname === "/" ? "text-[#558870] font-bold" : "text-black"
+                                        } transition`}
                                 >
                                     Home
                                 </Link>
@@ -124,7 +150,8 @@ const Header = () => {
                                 <Link
                                     to="/hotels"
                                     onClick={() => setMenu(false)}
-                                    className={`${pathname === "/hotels" ? "text-[#558870] font-bold" : "text-black"} transition`}
+                                    className={`${pathname === "/hotels" ? "text-[#558870] font-bold" : "text-black"
+                                        } transition`}
                                 >
                                     Hotels
                                 </Link>
@@ -133,47 +160,25 @@ const Header = () => {
                                 <Link
                                     to="/add-hotel"
                                     onClick={() => setMenu(false)}
-                                    className={`${pathname === "/add-hotel" ? "text-[#558870] font-bold" : "text-black"} transition`}
+                                    className={`${pathname === "/add-hotel" ? "text-[#558870] font-bold" : "text-black"
+                                        } transition`}
                                 >
                                     Add Hotel
                                 </Link>
                             </li>
                             <li>
-                                <Link
-                                    to="/contact"
+                                <Link  to="/contact"
                                     onClick={() => setMenu(false)}
-                                    className={`${pathname === "/contact" ? "text-[#558870] font-bold" : "text-black"} transition`}
-                                >
+                                    className={`${pathname === "/contact" ? "text-[#558870] font-bold" : "text-black"
+                                        } transition`} >
                                     Contact
                                 </Link>
                             </li>
                         </ul>
-
-                        <div className="mt-10">
-                            {isLoggedIn ? (
-                                <button
-                                    onClick={() => {
-                                        handleLogout();
-                                        setMenu(false);
-                                    }}
-                                    className="btn-custom w-full"
-                                >
-                                    Logout
-                                </button>
-                            ) : (
-                                <button
-                                    onClick={() => {
-                                        setMenu(false);
-                                        navigate("/login");
-                                    }}
-                                    className="btn-custom w-full bg-gradient"
-                                >
-                                    Login
-                                </button>
-                            )}
-                        </div>
                     </div>
                 )}
+
+
             </header>
         </>
     );

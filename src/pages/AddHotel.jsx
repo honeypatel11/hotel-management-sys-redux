@@ -71,7 +71,7 @@ const AddHotel = () => {
                 </div>
 
           
-                <div className="w-full lg:w-1/2 p-8 flex flex-col justify-center">
+                <div className="w-full lg:w-1/2 p-8 flex flex-col justify-center pt-5">
                     <h2 className="mb-6 text-3xl text-center font-bold text-[#357c73]">Add a Hotel</h2>
                     <form onSubmit={handleSubmit} className="space-y-5">
                      
@@ -87,7 +87,7 @@ const AddHotel = () => {
                             {errors.hotelName && <p className="text-red-500 text-sm mt-1">{errors.hotelName}</p>}
                         </div>
 
-                        {/* Location */}
+                      
                         <div>
                             <label htmlFor="location" className="block mb-1 text-sm font-medium text-gray-700">Location:</label>
                             <input
@@ -100,7 +100,7 @@ const AddHotel = () => {
                             {errors.location && <p className="text-red-500 text-sm mt-1">{errors.location}</p>}
                         </div>
 
-                        {/* Rooms */}
+                     
                         <div>
                             <label htmlFor="rooms" className="block mb-1 text-sm font-medium text-gray-700">Rooms:</label>
                             <input
@@ -113,7 +113,6 @@ const AddHotel = () => {
                             {errors.rooms && <p className="text-red-500 text-sm mt-1">{errors.rooms}</p>}
                         </div>
 
-                        {/* Category */}
                         <div>
                             <span className="block mb-1 text-sm font-medium text-gray-700">Category:</span>
                             <div className="flex flex-wrap gap-5">
@@ -134,7 +133,6 @@ const AddHotel = () => {
                             {errors.category && <p className="text-red-500 text-sm mt-1">{errors.category}</p>}
                         </div>
 
-                        {/* Price */}
                         <div>
                             <label htmlFor="price" className="block mb-1 text-sm font-medium text-gray-700">Price per Night:</label>
                             <input
@@ -147,7 +145,6 @@ const AddHotel = () => {
                             {errors.price && <p className="text-red-500 text-sm mt-1">{errors.price}</p>}
                         </div>
 
-                        {/* Submit Button */}
                         <button
                             type="submit"
                             className="w-full bg-[#2e7460] hover:bg-[#388353] text-white py-3 rounded-lg font-semibold text-sm transition duration-300"
