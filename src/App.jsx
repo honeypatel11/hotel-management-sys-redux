@@ -8,6 +8,7 @@ import HotelsList from "./pages/HotelsList"
 import EditHotel from "./pages/EditHotel"
 import AddHotel from "./pages/AddHotel"
 import ProtectedRoute from "./components/ProtectRoute"
+import Rooms from "./pages/Rooms"
 
 
 const App = () => {
@@ -16,6 +17,7 @@ const App = () => {
             <Header />
             <Routes>
                 <Route path="/" element={<Home />} />
+                <Route path="/rooms" element={<Rooms />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/login" element={<ProtectedRoute Component={Login} />} />
                 <Route path="/hotels" element={<ProtectedRoute Component={HotelsList} />} />

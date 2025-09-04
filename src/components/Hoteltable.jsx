@@ -19,7 +19,7 @@ const HotelsTable = ({ hotels }) => {
                             <th scope="col" className="px-6 py-3">Hotel Name</th>
                             <th scope="col" className="px-6 py-3">Location</th>
                             <th scope="col" className="px-6 py-3">Rooms</th>
-                            <th scope="col" className="px-6 py-3">Rating</th>
+                            
                             <th scope="col" className="px-6 py-3">Price/Night</th>
                             <th scope="col" className="px-6 py-3">Action</th>
                         </tr>
@@ -33,7 +33,7 @@ const HotelsTable = ({ hotels }) => {
                                     </td>
                                     <td className="px-6 py-4">{hotel.location}</td>
                                     <td className="px-6 py-4">{hotel.rooms}</td>
-                                    <td className="px-6 py-4">{hotel.rating} ⭐</td>
+                                   
                                     <td className="px-6 py-4">${Number(hotel.price).toLocaleString()}</td>
                                     <td className="px-6 py-4">
                                         <div className="flex items-center gap-4">

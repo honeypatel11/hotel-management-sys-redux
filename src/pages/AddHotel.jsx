@@ -113,25 +113,7 @@ const AddHotel = () => {
                             {errors.rooms && <p className="text-red-500 text-sm mt-1">{errors.rooms}</p>}
                         </div>
 
-                        <div>
-                            <span className="block mb-1 text-sm font-medium text-gray-700">Category:</span>
-                            <div className="flex flex-wrap gap-5">
-                                {["3-star", "4-star", "5-star"].map((value) => (
-                                    <label key={value} className="flex items-center gap-2 cursor-pointer">
-                                        <input
-                                            type="radio"
-                                            name="category"
-                                            value={value}
-                                            checked={input.category === value}
-                                            onChange={handleChange}
-                                            className="accent-[#28704a] w-4 h-4"
-                                        />
-                                        <span className="text-gray-700">{value}</span>
-                                    </label>
-                                ))}
-                            </div>
-                            {errors.category && <p className="text-red-500 text-sm mt-1">{errors.category}</p>}
-                        </div>
+                        
 
                         <div>
                             <label htmlFor="price" className="block mb-1 text-sm font-medium text-gray-700">Price per Night:</label>

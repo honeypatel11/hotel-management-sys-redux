@@ -36,28 +36,41 @@ const Header = () => {
                                         Home
                                     </Link>
                                 </li>
-                                <li>
+                                {
+                                    isLoggedIn && (<Link to="/hotels"
+                                        className={`${pathname === "/hotels" || pathname === "/add-hotel" ? "text-[#558870] px-2 font-bold text-md" : "text-black px-2 text-md"}`}> Hotels
+                                    </Link>)
+                                }
+                                {/* <li>
                                     <Link
                                         to="/hotels"
                                         className={`${pathname === "/hotels" ? "text-[#558870] px-2 font-bold text-md" : "text-black px-2 text-md"}`}
                                     >
                                         Hotels
                                     </Link>
-                                </li>
-                                <li>
+                                </li> */}
+                                {/* <li>
                                     <Link
                                         to="/add-hotel"
                                         className={`${pathname === "/add-hotel" ? "text-[#558870] px-2 font-bold text-md" : "text-black px-2 text-md"}`}
                                     >
                                         Add Hotel
                                     </Link>
-                                </li>
+                                </li> */}
                                 <li>
                                     <Link
                                         to="/contact"
                                         className={`${pathname === "/contact" ? "text-[#558870] px-2 font-bold text-md" : "text-black px-2 text-md"}`}
                                     >
                                         Contact
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link to="/rooms"
+                                        onClick={() => setMenu(false)}
+                                        className={`${pathname === "/rooms" ? "text-[#558870] font-bold" : "text-black"
+                                            } transition`} >
+                                        Rooms
                                     </Link>
                                 </li>
                             </ul>
@@ -167,11 +180,19 @@ const Header = () => {
                                 </Link>
                             </li>
                             <li>
-                                <Link  to="/contact"
+                                <Link to="/contact"
                                     onClick={() => setMenu(false)}
                                     className={`${pathname === "/contact" ? "text-[#558870] font-bold" : "text-black"
                                         } transition`} >
                                     Contact
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="/rooms"
+                                    onClick={() => setMenu(false)}
+                                    className={`${pathname === "/rooms" ? "text-[#558870] font-bold" : "text-black"
+                                        } transition`} >
+                                    Rooms
                                 </Link>
                             </li>
                         </ul>

@@ -1,5 +1,5 @@
-import { hotelCard } from "../components/Hotelcard" // new hotel data array
-import HotelCard from "../components/Hotelcard"     // new or modified card component
+import { hotelCard } from "../components/Hotelcard" 
+import HotelCard from "../components/Hotelcard"     
 
 const Hotels = () => {
     return (

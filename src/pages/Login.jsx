@@ -29,7 +29,7 @@ const Login = () => {
             <div className="min-h-screen flex items-center justify-center bg-[#11221C]">
                 <div className="w-full lg:w-1/2 flex items-center justify-center md:p-8">
                     <div className="w-full bg-white md:rounded-md shadow-md max-w-md p-8">
-                        <h1 className="text-4xl text-teal-800 mb-6 text-center">Hotel Manager Login</h1>
+                        <h1 className="text-3xl text-teal-800 mb-6 text-center font-bold">Login</h1>
                         <form onSubmit={handleSubmit} className="space-y-5">
                             <div>
                                 <label htmlFor="email" className="block mb-1 text-sm font-semibold text-gray-900">Email</label>
