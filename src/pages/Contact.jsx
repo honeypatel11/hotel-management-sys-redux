@@ -3,14 +3,14 @@ import React from 'react';
 const Contact = () => {
   return (
     <div className="font-sans">
-      {/* Header Section */}
+  
       <div className="h-[300px] bg-cover bg-center flex items-center justify-center text-black text-4xl font-bold" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80')" }}>
         Contact
       </div>
 
-      {/* Info Cards */}
+    
       <div className="flex flex-col md:flex-row justify-center gap-8 px-4 py-12">
-        {/* Card 1 */}
+      
         <div className="border p-6 w-full md:w-[300px] text-center shadow">
           <img src="https://img.icons8.com/ios-filled/50/000000/clock.png" alt="clock" className="mx-auto w-10" />
           <h3 className="text-xl font-semibold mt-4 mb-2">Reception Always Open</h3>
@@ -18,7 +18,6 @@ const Contact = () => {
           <a href="#" className="text-black underline">Read More</a>
         </div>
 
-        {/* Card 2 */}
         <div className="border p-6 w-full md:w-[300px] text-center shadow">
           <img src="https://img.icons8.com/ios-filled/50/000000/laptop.png" alt="reservation" className="mx-auto w-10" />
           <h3 className="text-xl font-semibold mt-4 mb-2">Online Reservations</h3>
@@ -27,7 +26,7 @@ const Contact = () => {
         </div>
       </div>
 
-      {/* Contact Form */}
+     
       <section className="text-center px-4">
         <h6 className="uppercase text-sm tracking-widest text-gray-500">Contact Us</h6>
         <h1 className="text-4xl font-bold mt-2">Get In Touch</h1>
@@ -45,7 +44,7 @@ const Contact = () => {
         </form>
       </section>
 
-      {/* Map + Hotel Info */}
+    
       <div className="relative mt-16">
         <iframe
           title="map"

@@ -1,4 +1,3 @@
-import React from 'react';
 
 const Rooms = () => {
   return (
@@ -23,16 +22,7 @@ const Rooms = () => {
         <span className="opacity-70">Thank You</span>
       </div>
 
-      <div className="bg-gray-100 px-6 py-4 flex flex-wrap justify-between items-center text-sm">
-        <div className="flex gap-4 flex-wrap">
-          <button className="text-gray-700 hover:underline">Stay Price ▼</button>
-          <button className="text-gray-700 hover:underline">Room Size ▼</button>
-        </div>
-        <div className="flex gap-3">
-          <button className="w-5 h-5 bg-gray-700"></button>
-          <button className="w-5 h-5 border border-gray-700"></button>
-        </div>
-      </div>
+      
 
  
       <div className="px-4 py-10 flex flex-col lg:flex-row gap-10 justify-center">
@@ -72,9 +62,9 @@ const Rooms = () => {
           </div>
         </div>
 
-        {/* Room Cards */}
+       
         <div className="grid md:grid-cols-2 gap-6 max-w-4xl">
-          {/* Room 1 */}
+    
           <div className="border">
             <div className="relative">
               <img
@@ -96,7 +86,7 @@ const Rooms = () => {
             </div>
           </div>
 
-          {/* Room 2 */}
+   
           <div className="border">
             <div className="relative">
               <img

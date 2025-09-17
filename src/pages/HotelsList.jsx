@@ -27,7 +27,7 @@ const HotelsList = () => {
         <section className="hotel pt-[120px]">
             <div className="container mx-auto">
                 <div className="flex items-center justify-between">
-                    <h2 className="text-3xl text-teal-600">Hotel Details</h2>
+                    <h2 className="text-3xl text-teal-600 font-semibold">Hotel Details</h2>
                     <div>
                         <button
                             type="button"

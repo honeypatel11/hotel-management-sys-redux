@@ -9,7 +9,7 @@ const AddHotel = () => {
         location: '',
         rooms: '',
         price: '',
-        category: '',
+       
     });
 
     const [errors, setErrors] = useState({});
@@ -42,9 +42,6 @@ const AddHotel = () => {
             validateErrors.rooms = "Enter Number of Rooms!";
         }
 
-        if (input.category.trim() === "") {
-            validateErrors.category = "Select Hotel Category!";
-        }
 
         if (input.price.trim() === "") {
             validateErrors.price = "Enter Price!";
