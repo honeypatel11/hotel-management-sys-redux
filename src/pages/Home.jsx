@@ -13,7 +13,6 @@ const Home = () => {
                                 Over <span>5,000+</span> luxury and budget hotels worldwide
                             </p>
                         </div>
-
                         <div className="flex justify-center flex-wrap">
                             <form className="mt-12 w-10/12 xl:flex hidden bg-white gap-4 rounded-xl p-4 justify-between flex-wrap items-center">
                         
@@ -40,7 +39,6 @@ const Home = () => {
                                         </select>
                                     </div>
                                 </div>
-
                               
                                 <div className="flex items-center gap-3 border-r xl:p-0 p-4 xl:w-3/12 md:w-6/12 w-full">
                                     <i className="bi bi-calendar-event text-lg text-gray-500"></i>
